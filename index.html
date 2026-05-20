@@ -26,7 +26,7 @@
       min-height:18px; visibility:hidden;">
       Contraseña incorrecta. Inténtalo de nuevo.
     </p>
-    <button onclick="checkPassword(Unl2026@)" style="
+    <button onclick="checkPassword()" style="
       margin-top:16px; width:100%; padding:13px;
       background:#6366f1; color:white; border:none;
       border-radius:8px; font-size:16px; font-weight:600;
@@ -42,7 +42,7 @@
   function checkPassword() {
     var input = document.getElementById('pwd-input').value;
     var error = document.getElementById('pwd-error');
-    if (input === 'UNL2026') {
+    if (input === 'UnL2026@') {
       document.getElementById('password-gate').style.display = 'none';
     } else {
       error.style.visibility = 'visible';
