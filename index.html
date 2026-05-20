@@ -1,3 +1,57 @@
+<!-- PUERTA DE ACCESO CON CONTRASEÑA -->
+<div id="password-gate" style="
+  position:fixed; top:0; left:0; width:100%; height:100%;
+  background:#1a1a2e; display:flex; align-items:center;
+  justify-content:center; z-index:99999; font-family:sans-serif;">
+  <div style="
+    background:#16213e; border-radius:16px; padding:48px 40px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5); text-align:center;
+    max-width:360px; width:90%;">
+    <div style="font-size:48px; margin-bottom:16px;">🔐</div>
+    <h2 style="color:#e2e8f0; margin:0 0 8px; font-size:22px;">Versión Demo</h2>
+    <p style="color:#94a3b8; margin:0 0 28px; font-size:14px;">
+      Ingresa la contraseña para continuar
+    </p>
+    <input id="pwd-input" type="password" placeholder="Contraseña"
+      style="
+        width:100%; padding:12px 16px; border-radius:8px;
+        border:2px solid #334155; background:#0f172a; color:#e2e8f0;
+        font-size:16px; box-sizing:border-box; outline:none;
+        transition:border-color .2s;"
+      onkeydown="if(event.key==='Enter') checkPassword()"
+      onfocus="this.style.borderColor='#6366f1'"
+      onblur="this.style.borderColor='#334155'">
+    <p id="pwd-error" style="
+      color:#f87171; font-size:13px; margin:10px 0 0;
+      min-height:18px; visibility:hidden;">
+      Contraseña incorrecta. Inténtalo de nuevo.
+    </p>
+    <button onclick="checkPassword()" style="
+      margin-top:16px; width:100%; padding:13px;
+      background:#6366f1; color:white; border:none;
+      border-radius:8px; font-size:16px; font-weight:600;
+      cursor:pointer; transition:background .2s;"
+      onmouseover="this.style.background='#4f46e5'"
+      onmouseout="this.style.background='#6366f1'">
+      Ingresar
+    </button>
+  </div>
+</div>
+
+<script>
+  function checkPassword() {
+    var input = document.getElementById('pwd-input').value;
+    var error = document.getElementById('pwd-error');
+    if (input === 'UNL2026') {
+      document.getElementById('password-gate').style.display = 'none';
+    } else {
+      error.style.visibility = 'visible';
+      document.getElementById('pwd-input').value = '';
+      document.getElementById('pwd-input').focus();
+    }
+  }
+</script>
+<!-- FIN PUERTA DE ACCESO -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
